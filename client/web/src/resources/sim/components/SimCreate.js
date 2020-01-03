@@ -4,7 +4,7 @@ import sim from "..";
 import now from "../../../helpers/now";
 import moment from "moment";
 
-const SimCreate = props => {
+const SimCreate = ({ permissions, ...rest }) => {
   const {
     components: { create }
   } = sim;
@@ -15,11 +15,11 @@ const SimCreate = props => {
     updated: now
   };
 
-  return (
-    <Create {...props} {...create}>
+  return permissions ? (
+    <Create {...rest} {...create}>
       <SimpleForm initialValues={initialValues}></SimpleForm>
     </Create>
-  );
+  ) : null;
 };
 
 export default SimCreate;

@@ -7,12 +7,8 @@ const ImageBase64Field = props => {
   const record = props.record;
 
   useEffect(() => {
-    if (record) {
-      if (
-        !isBase64(record.src, { allowMime: true }) &&
-        record.src instanceof Blob
-      )
-        converFileToBase64(record).then(res => (record.src = res));
+    if (record && record.src && !isBase64(record.src, { allowMime: true })) {
+      converFileToBase64(record).then(res => (record.src = res));
     }
   }, [record]);
 
