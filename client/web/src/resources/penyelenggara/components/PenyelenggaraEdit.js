@@ -13,13 +13,23 @@ import now from "../../../helpers/now";
 import ImageBase64Field from "../../../helpers/components/ImageBase64Field";
 import lingkup_src from "../../lingkup";
 import jenis_pomdam_src from "../../jenis_pomdam";
+import ibukota_provinsi_res from "../../ibukota_provinsi";
 import PersonelForm from "../../personel/components/PersonelForm";
 import PenyelenggaraEditToolbar from "../helpers/edit/PenyelenggaraEditToolbar";
 
 const PenyelenggaraEdit = ({ permissions, ...rest }) => {
   const {
     components: { edit },
-    fields: { lingkup, jenis_pomdam, nama, kode, kode_romawi, logo, stempel },
+    fields: {
+      lingkup,
+      jenis_pomdam,
+      nama,
+      kode,
+      kode_romawi,
+      markas,
+      logo,
+      stempel
+    },
     prefix
   } = penyelenggara;
 
@@ -63,6 +73,9 @@ const PenyelenggaraEdit = ({ permissions, ...rest }) => {
           }
         </FormDataConsumer>
         <TextInput {...kode} />
+        <ReferenceInput {...markas}>
+          <SelectInput optionText={ibukota_provinsi_res.fields.nama.source} />
+        </ReferenceInput>
         <ImageInput {...logo}>
           <ImageBase64Field source="src" title="logo" />
         </ImageInput>

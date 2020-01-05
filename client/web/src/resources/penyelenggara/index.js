@@ -4,6 +4,7 @@ import jenis_pomdam from "../jenis_pomdam";
 import personel from "../personel";
 import PenyelenggaraList from "./components/PenyelenggaraList";
 import PenyelenggaraEdit from "./components/PenyelenggaraEdit";
+import ibukota_provinsi from "../ibukota_provinsi";
 
 const identities = {
   name: "penyelenggara",
@@ -51,6 +52,15 @@ const fields = {
   kode_romawi: {
     source: "kode_romawi",
     label: "Kode Romawi"
+  },
+  markas: {
+    source: "markas_id",
+    label: "Markas",
+    reference: ibukota_provinsi.identities.name,
+    sort: {
+      field: ibukota_provinsi.fields.id.source,
+      order: "ASC"
+    }
   },
   logo: {
     source: "logo",

@@ -1,15 +1,15 @@
-import GolDarahCreate from "./components/GolDarahCreate";
-import GolDarahEdit from "./components/GolDarahEdit";
-import GolDarahList from "./components/GolDarahList";
+import JenisPengajuanSimCreate from "./components/JenisPengajuanSimCreate";
+import JenisPengajuanSimEdit from "./components/JenisPengajuanSimEdit";
+import JenisPengajuanSimList from "./components/JenisPengajuanSimList";
 
 const identities = {
-  name: "gol_darah",
+  name: "jenis_pengajuan_sim",
   options: {
-    label: "Golongan Darah"
+    label: "Jenis Pengajuan SIM"
   },
-  create: GolDarahCreate,
-  edit: GolDarahEdit,
-  list: GolDarahList
+  create: JenisPengajuanSimCreate,
+  edit: JenisPengajuanSimEdit,
+  list: JenisPengajuanSimList
 };
 
 const fields = {
@@ -20,6 +20,10 @@ const fields = {
   nama: {
     source: "nama",
     label: "Nama"
+  },
+  kode: {
+    source: "kode",
+    label: "Kode"
   },
   created: {
     source: "created",

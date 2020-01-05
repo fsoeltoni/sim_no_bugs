@@ -1,5 +1,60 @@
 {
-  "sim": [],
+  "sim": [
+    {
+      "berlaku_hingga": "2025-01-05T20:09:30.934Z",
+      "created": "2020-01-05T20:09:30.934Z",
+      "updated": "2020-01-05T20:09:30.934Z",
+      "jenis_pengajuan_sim_id": 1,
+      "gol_sim_id": 1,
+      "personel_id": 1,
+      "id": 1,
+      "penyelenggara_id": 1,
+      "no_sim": "Jaya.0001.0985/A.1/I/2020"
+    }
+  ],
+  "jenis_pengajuan_sim": [
+    {
+      "created": "2020-01-05T06:33:52.489Z",
+      "updated": "2020-01-05T06:33:52.489Z",
+      "nama": "Baru",
+      "kode": 1,
+      "id": 1
+    },
+    {
+      "created": "2020-01-05T06:33:52.489Z",
+      "updated": "2020-01-05T06:33:52.489Z",
+      "nama": "Perpanjang",
+      "kode": 2,
+      "id": 2
+    },
+    {
+      "created": "2020-01-05T06:33:52.489Z",
+      "updated": "2020-01-05T06:33:52.489Z",
+      "nama": "Ganti",
+      "kode": 3,
+      "id": 3
+    }
+  ],
+  "gol_sim": [
+    {
+      "created": "2020-01-05T06:27:36.673Z",
+      "updated": "2020-01-05T06:27:36.673Z",
+      "nama": "A",
+      "id": 1
+    },
+    {
+      "created": "2020-01-05T06:27:36.673Z",
+      "updated": "2020-01-05T06:27:36.673Z",
+      "nama": "B1",
+      "id": 2
+    },
+    {
+      "created": "2020-01-05T06:27:36.673Z",
+      "updated": "2020-01-05T06:27:36.673Z",
+      "nama": "C",
+      "id": 3
+    }
+  ],
   "pengguna": [
     {
       "updated": "2020-01-02T18:23:13.514Z",
@@ -48,6 +103,7 @@
         "stempel": "Lambang_Kodam_Jaya.png"
       },
       "jenis_pomdam_id": 1,
+      "markas_id": 1,
       "komandan_id": 2,
       "id": 1
     }
@@ -83,6 +139,14 @@
       "id": 2
     }
   ],
+  "ibukota_provinsi": [
+    {
+      "created": "2020-01-05T21:44:37.251Z",
+      "updated": "2020-01-05T21:44:37.251Z",
+      "nama": "Jakarta",
+      "id": 1
+    }
+  ],
   "personel": [
     {
       "jenis_personel_id": 1,
@@ -100,13 +164,34 @@
       "jenis_personel_id": 1,
       "no_identitas": 222222,
       "nama": "Lionel Messi",
-      "tempat_lahir": "Argentina",
-      "tanggal_lahir": "2020-01-21",
+      "tempat_lahir": "Buenos Aires",
+      "tanggal_lahir": "1987-01-21",
       "gol_darah_id": 1,
       "pangkat_id": 9,
       "korps_id": 6,
       "kesatuan": "Barcelona",
       "id": 2
+    },
+    {
+      "jenis_personel_id": 1,
+      "no_identitas": 333333,
+      "nama": "Gerard Pique",
+      "tempat_lahir": "Spanyol",
+      "tanggal_lahir": "2020-01-04",
+      "gol_darah_id": 1,
+      "pangkat_id": 10,
+      "korps_id": 10,
+      "kesatuan": "Barcelona",
+      "id": 3
+    },
+    {
+      "jenis_personel_id": 2,
+      "no_identitas": 111111,
+      "nama": "Guardiola",
+      "tempat_lahir": "Catalan",
+      "tanggal_lahir": "2019-12-31",
+      "gol_darah_id": 3,
+      "id": 4
     }
   ],
   "gol_darah": [

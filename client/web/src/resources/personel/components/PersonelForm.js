@@ -163,6 +163,7 @@ const PersonelForm = ({
           label = "NIK";
           break;
         default:
+          console.log("NULL");
           label = null;
       }
 

@@ -15,11 +15,21 @@ import lingkup_src from "../../lingkup";
 import jenis_pomdam_src from "../../jenis_pomdam";
 import PersonelForm from "../../personel/components/PersonelForm";
 import PenyelenggaraCreateToolbar from "../helpers/create/PenyelenggaraCreateToolbar";
+import ibukota_provinsi_res from "../../ibukota_provinsi";
 
 const PenyelenggaraCreate = ({ permissions, ...rest }) => {
   const {
     components: { create },
-    fields: { lingkup, jenis_pomdam, nama, kode, kode_romawi, logo, stempel },
+    fields: {
+      lingkup,
+      jenis_pomdam,
+      nama,
+      kode,
+      kode_romawi,
+      markas,
+      logo,
+      stempel
+    },
     prefix
   } = penyelenggara;
 
@@ -64,6 +74,9 @@ const PenyelenggaraCreate = ({ permissions, ...rest }) => {
           }
         </FormDataConsumer>
         <TextInput {...kode} />
+        <ReferenceInput {...markas}>
+          <SelectInput optionText={ibukota_provinsi_res.fields.nama.source} />
+        </ReferenceInput>
         <ImageInput {...logo}>
           <ImageBase64Field source="src" title="logo" />
         </ImageInput>

@@ -14,19 +14,32 @@ import gol_darah from "./resources/gol_darah";
 import pengguna from "./resources/pengguna";
 import auth from "./providers/auth";
 import jenis_pengguna from "./resources/jenis_pengguna";
+import gol_sim from "./resources/gol_sim";
+import jenis_pengajuan_sim from "./resources/jenis_pengajuan_sim";
+import route from "./providers/route";
+import ibukota_provinsi from "./resources/ibukota_provinsi";
 
 const title = attrs.title;
 const dataProvider = data;
 const authProvider = auth;
+const customRoutes = route;
 
 const App = () => (
-  <Admin title={title} dataProvider={dataProvider} authProvider={authProvider}>
+  <Admin
+    title={title}
+    dataProvider={dataProvider}
+    authProvider={authProvider}
+    customRoutes={customRoutes}
+  >
     <Resource {...sim.identities} />
+    <Resource {...jenis_pengajuan_sim.identities} />
+    <Resource {...gol_sim.identities} />
     <Resource {...pengguna.identities} />
     <Resource {...jenis_pengguna.identities} />
     <Resource {...penyelenggara.identities} />
     <Resource {...jenis_pomdam.identities} />
     <Resource {...lingkup.identities} />
+    <Resource {...ibukota_provinsi.identities} />
     <Resource {...personel.identities} />
     <Resource {...gol_darah.identities} />
     <Resource {...jenis_personel.identities} />

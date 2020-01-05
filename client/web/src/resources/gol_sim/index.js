@@ -1,15 +1,15 @@
-import GolDarahCreate from "./components/GolDarahCreate";
-import GolDarahEdit from "./components/GolDarahEdit";
-import GolDarahList from "./components/GolDarahList";
+import GolSimCreate from "./components/GolSimCreate";
+import GolSimEdit from "./components/GolSimEdit";
+import GolSimList from "./components/GolSimList";
 
 const identities = {
-  name: "gol_darah",
+  name: "gol_sim",
   options: {
-    label: "Golongan Darah"
+    label: "Golongan SIM"
   },
-  create: GolDarahCreate,
-  edit: GolDarahEdit,
-  list: GolDarahList
+  create: GolSimCreate,
+  edit: GolSimEdit,
+  list: GolSimList
 };
 
 const fields = {

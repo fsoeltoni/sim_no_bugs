@@ -1,15 +1,15 @@
-import GolDarahCreate from "./components/GolDarahCreate";
-import GolDarahEdit from "./components/GolDarahEdit";
-import GolDarahList from "./components/GolDarahList";
+import IbukotaProvinsiCreate from "./components/IbukotaProvinsiCreate";
+import IbukotaProvinsiEdit from "./components/IbukotaProvinsiEdit";
+import IbukotaProvinsiList from "./components/IbukotaProvinsiList";
 
 const identities = {
-  name: "gol_darah",
+  name: "ibukota_provinsi",
   options: {
-    label: "Golongan Darah"
+    label: "Ibukota Provinsi"
   },
-  create: GolDarahCreate,
-  edit: GolDarahEdit,
-  list: GolDarahList
+  create: IbukotaProvinsiCreate,
+  edit: IbukotaProvinsiEdit,
+  list: IbukotaProvinsiList
 };
 
 const fields = {
