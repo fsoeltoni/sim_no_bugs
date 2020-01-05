@@ -3,7 +3,7 @@ import { Edit, SimpleForm } from "react-admin";
 import sim from "..";
 import now from "../../../helpers/now";
 
-const SimEdit = props => {
+const SimEdit = ({ permissions, ...rest }) => {
   const {
     components: { create }
   } = sim;
@@ -12,11 +12,11 @@ const SimEdit = props => {
     updated: now
   };
 
-  return (
-    <Edit {...props} {...create}>
+  return permissions ? (
+    <Edit {...rest} {...create}>
       <SimpleForm initialValues={initialValues}></SimpleForm>
     </Edit>
-  );
+  ) : null;
 };
 
 export default SimEdit;

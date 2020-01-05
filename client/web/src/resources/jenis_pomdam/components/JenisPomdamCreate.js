@@ -3,7 +3,7 @@ import { Create, SimpleForm, TextInput } from "react-admin";
 import jenis_pomdam from "..";
 import now from "../../../helpers/now";
 
-const JenisPomdamCreate = props => {
+const JenisPomdamCreate = ({ permissions, ...rest }) => {
   const {
     components: { create },
     fields: { nama }
@@ -14,13 +14,13 @@ const JenisPomdamCreate = props => {
     updated: now
   };
 
-  return (
-    <Create {...props} {...create}>
+  return permissions ? (
+    <Create {...rest} {...create}>
       <SimpleForm initialValues={initialValues} variant="outlined">
         <TextInput {...nama} />
       </SimpleForm>
     </Create>
-  );
+  ) : null;
 };
 
 export default JenisPomdamCreate;

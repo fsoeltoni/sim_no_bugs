@@ -8,14 +8,14 @@ import {
 } from "react-admin";
 import jenis_pomdam from "..";
 
-const JenisPomdamList = props => {
+const JenisPomdamList = ({ permissions, ...rest }) => {
   const {
     components: { list },
     fields: { id, nama }
   } = jenis_pomdam;
 
-  return (
-    <List {...props} {...list}>
+  return permissions ? (
+    <List {...rest} {...list}>
       <Datagrid>
         <TextField {...id} />
         <TextField {...nama} />
@@ -23,7 +23,7 @@ const JenisPomdamList = props => {
         <DeleteButton />
       </Datagrid>
     </List>
-  );
+  ) : null;
 };
 
 export default JenisPomdamList;

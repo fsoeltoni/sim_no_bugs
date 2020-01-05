@@ -17,7 +17,7 @@ import gol_darah_src from "../../gol_darah";
 import pangkat_src from "../../pangkat";
 import korps_src from "../../korps";
 
-const PersonelEdit = props => {
+const PersonelEdit = ({ permissions, ...rest }) => {
   const {
     components: { edit },
     fields
@@ -64,8 +64,8 @@ const PersonelEdit = props => {
   const isAnggotaTniAd = formData =>
     formData.jenis_personel_id && formData.jenis_personel_id === 1;
 
-  return (
-    <Edit {...props} {...edit}>
+  return permissions ? (
+    <Edit {...rest} {...edit}>
       <SimpleForm initialValues={initialValues} variant="outlined">
         <ReferenceInput {...jenis_personel}>
           <SelectInput optionText={jenis_personel_src.fields.nama.source} />
@@ -106,7 +106,7 @@ const PersonelEdit = props => {
         </FormDataConsumer>
       </SimpleForm>
     </Edit>
-  );
+  ) : null;
 };
 
 export default PersonelEdit;

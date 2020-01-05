@@ -13,14 +13,14 @@ import penyelenggara_src from "../../penyelenggara";
 import jenis_pengguna_src from "../../jenis_pengguna";
 import personel_src from "../../personel";
 
-const PenggunaList = props => {
+const PenggunaList = ({ permissions, ...rest }) => {
   const {
     components: { list },
     fields: { id, lingkup, penyelenggara, jenis_pengguna, personel }
   } = pengguna;
 
-  return (
-    <List {...props} {...list}>
+  return permissions ? (
+    <List {...rest} {...list}>
       <Datagrid>
         <TextField {...id} />
         <ReferenceField {...lingkup}>
@@ -39,7 +39,7 @@ const PenggunaList = props => {
         <DeleteButton />
       </Datagrid>
     </List>
-  );
+  ) : null;
 };
 
 export default PenggunaList;

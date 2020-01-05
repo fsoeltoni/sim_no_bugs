@@ -3,7 +3,7 @@ import { Edit, SimpleForm, TextInput } from "react-admin";
 import korps from "..";
 import now from "../../../helpers/now";
 
-const KorpsEdit = props => {
+const KorpsEdit = ({ permissions, ...rest }) => {
   const {
     components: { edit },
     fields: { nama, kode }
@@ -13,14 +13,14 @@ const KorpsEdit = props => {
     updated: now
   };
 
-  return (
-    <Edit {...props} {...edit}>
+  return permissions ? (
+    <Edit {...rest} {...edit}>
       <SimpleForm initialValues={initialValues} variant="outlined">
         <TextInput {...nama} />
         <TextInput {...kode} />
       </SimpleForm>
     </Edit>
-  );
+  ) : null;
 };
 
 export default KorpsEdit;

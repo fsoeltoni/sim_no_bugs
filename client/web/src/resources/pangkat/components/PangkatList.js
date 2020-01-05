@@ -8,14 +8,14 @@ import {
 } from "react-admin";
 import pangkat from "..";
 
-const PangkatList = props => {
+const PangkatList = ({ permissions, ...rest }) => {
   const {
     components: { list },
     fields: { id, nama, kode }
   } = pangkat;
 
-  return (
-    <List {...props} {...list}>
+  return permissions ? (
+    <List {...rest} {...list}>
       <Datagrid>
         <TextField {...id} />
         <TextField {...nama} />
@@ -24,7 +24,7 @@ const PangkatList = props => {
         <DeleteButton />
       </Datagrid>
     </List>
-  );
+  ) : null;
 };
 
 export default PangkatList;

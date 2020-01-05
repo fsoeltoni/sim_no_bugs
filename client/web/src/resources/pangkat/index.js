@@ -51,4 +51,12 @@ const components = {
   }
 };
 
-export default { identities, components, fields };
+const helpers = {
+  fetchSingle: async (dataProvider, id) => {
+    return await dataProvider.getOne(identities.name, {
+      id: id
+    });
+  }
+};
+
+export default { identities, components, fields, helpers };

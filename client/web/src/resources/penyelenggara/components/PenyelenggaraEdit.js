@@ -16,7 +16,7 @@ import jenis_pomdam_src from "../../jenis_pomdam";
 import PersonelForm from "../../personel/components/PersonelForm";
 import PenyelenggaraEditToolbar from "../helpers/edit/PenyelenggaraEditToolbar";
 
-const PenyelenggaraEdit = props => {
+const PenyelenggaraEdit = ({ permissions, ...rest }) => {
   const {
     components: { edit },
     fields: { lingkup, jenis_pomdam, nama, kode, kode_romawi, logo, stempel },
@@ -35,8 +35,8 @@ const PenyelenggaraEdit = props => {
     formData[jenis_pomdam.source] &&
     formData[jenis_pomdam.source] === 2;
 
-  return (
-    <Edit {...props} {...edit}>
+  return permissions ? (
+    <Edit {...rest} {...edit}>
       <SimpleForm
         initialValues={initialValues}
         variant="outlined"
@@ -72,7 +72,7 @@ const PenyelenggaraEdit = props => {
         <PersonelForm prefix={prefix} jenis_personel_default={1} />
       </SimpleForm>
     </Edit>
-  );
+  ) : null;
 };
 
 export default PenyelenggaraEdit;

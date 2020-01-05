@@ -3,7 +3,7 @@ import { Create, SimpleForm, TextInput } from "react-admin";
 import pangkat from "..";
 import now from "../../../helpers/now";
 
-const PangkatCreate = props => {
+const PangkatCreate = ({ permissions, ...rest }) => {
   const {
     components: { create },
     fields: { nama, kode }
@@ -14,14 +14,14 @@ const PangkatCreate = props => {
     updated: now
   };
 
-  return (
-    <Create {...props} {...create}>
+  return permissions ? (
+    <Create {...rest} {...create}>
       <SimpleForm initialValues={initialValues} variant="outlined">
         <TextInput {...nama} />
         <TextInput {...kode} />
       </SimpleForm>
     </Create>
-  );
+  ) : null;
 };
 
 export default PangkatCreate;

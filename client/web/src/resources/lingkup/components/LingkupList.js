@@ -9,14 +9,14 @@ import {
 } from "react-admin";
 import lingkup from "..";
 
-const LingkupList = props => {
+const LingkupList = ({ permissions, ...rest }) => {
   const {
     components: { list },
     fields: { id, pendahulu, nama, label_komandan }
   } = lingkup;
 
-  return (
-    <List {...props} {...list}>
+  return permissions ? (
+    <List {...rest} {...list}>
       <Datagrid>
         <TextField {...id} />
         <ReferenceField {...pendahulu}>
@@ -28,7 +28,7 @@ const LingkupList = props => {
         <DeleteButton />
       </Datagrid>
     </List>
-  );
+  ) : null;
 };
 
 export default LingkupList;

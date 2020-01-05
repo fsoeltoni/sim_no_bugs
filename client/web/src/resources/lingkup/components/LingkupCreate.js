@@ -9,7 +9,7 @@ import {
 import lingkup from "..";
 import now from "../../../helpers/now";
 
-const LingkupCreate = props => {
+const LingkupCreate = ({ permissions, ...rest }) => {
   const {
     components: { create },
     fields: { pendahulu, nama, label_komandan }
@@ -20,8 +20,8 @@ const LingkupCreate = props => {
     updated: now
   };
 
-  return (
-    <Create {...props} {...create}>
+  return permissions ? (
+    <Create {...rest} {...create}>
       <SimpleForm initialValues={initialValues} variant="outlined">
         <ReferenceInput {...pendahulu}>
           <SelectInput optionText={nama.source} />
@@ -30,7 +30,7 @@ const LingkupCreate = props => {
         <TextInput {...label_komandan} />
       </SimpleForm>
     </Create>
-  );
+  ) : null;
 };
 
 export default LingkupCreate;

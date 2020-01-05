@@ -3,7 +3,7 @@ import { Create, SimpleForm, TextInput } from "react-admin";
 import jenis_personel from "..";
 import now from "../../../helpers/now";
 
-const JenisPersonelCreate = props => {
+const JenisPersonelCreate = ({ permissions, ...rest }) => {
   const {
     components: { create },
     fields: { nama, kode }
@@ -14,14 +14,14 @@ const JenisPersonelCreate = props => {
     updated: now
   };
 
-  return (
-    <Create {...props} {...create}>
+  return permissions ? (
+    <Create {...rest} {...create}>
       <SimpleForm initialValues={initialValues} variant="outlined">
         <TextInput {...nama} />
         <TextInput {...kode} />
       </SimpleForm>
     </Create>
-  );
+  ) : null;
 };
 
 export default JenisPersonelCreate;

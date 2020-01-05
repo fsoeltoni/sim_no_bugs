@@ -15,7 +15,7 @@ import jenis_pengguna_src from "../../jenis_pengguna";
 import PersonelForm from "../../personel/components/PersonelForm";
 import PenggunaUpdateToolbar from "../helpers/update/PenggunaUpdateToolbar";
 
-const PenggunaEdit = props => {
+const PenggunaEdit = ({ permissions, ...rest }) => {
   const {
     components: { edit },
     fields: { lingkup, jenis_pengguna, penyelenggara, kata_sandi },
@@ -28,8 +28,8 @@ const PenggunaEdit = props => {
 
   const hasLingkup = formData => formData[lingkup.source];
 
-  return (
-    <Edit {...props} {...edit}>
+  return permissions ? (
+    <Edit {...rest} {...edit}>
       <SimpleForm
         initialValues={initialValues}
         variant="outlined"
@@ -60,7 +60,7 @@ const PenggunaEdit = props => {
         <TextInput {...kata_sandi} />
       </SimpleForm>
     </Edit>
-  );
+  ) : null;
 };
 
 export default PenggunaEdit;

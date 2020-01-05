@@ -3,7 +3,7 @@ import { Edit, SimpleForm, TextInput } from "react-admin";
 import pangkat from "..";
 import now from "../../../helpers/now";
 
-const PangkatEdit = props => {
+const PangkatEdit = ({ permissions, ...rest }) => {
   const {
     components: { edit },
     fields: { nama, kode }
@@ -13,14 +13,14 @@ const PangkatEdit = props => {
     updated: now
   };
 
-  return (
-    <Edit {...props} {...edit}>
+  return permissions ? (
+    <Edit {...rest} {...edit}>
       <SimpleForm initialValues={initialValues} variant="outlined">
         <TextInput {...nama} />
         <TextInput {...kode} />
       </SimpleForm>
     </Edit>
-  );
+  ) : null;
 };
 
 export default PangkatEdit;

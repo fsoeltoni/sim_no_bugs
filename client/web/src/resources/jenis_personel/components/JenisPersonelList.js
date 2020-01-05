@@ -8,14 +8,14 @@ import {
 } from "react-admin";
 import jenis_personel from "..";
 
-const JenisPersonelList = props => {
+const JenisPersonelList = ({ permissions, ...rest }) => {
   const {
     components: { list },
     fields: { id, nama, kode }
   } = jenis_personel;
 
-  return (
-    <List {...props} {...list}>
+  return permissions ? (
+    <List {...rest} {...list}>
       <Datagrid>
         <TextField {...id} />
         <TextField {...nama} />
@@ -24,7 +24,7 @@ const JenisPersonelList = props => {
         <DeleteButton />
       </Datagrid>
     </List>
-  );
+  ) : null;
 };
 
 export default JenisPersonelList;

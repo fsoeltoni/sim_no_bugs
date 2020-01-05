@@ -8,14 +8,14 @@ import {
 } from "react-admin";
 import gol_darah from "..";
 
-const GolDarahList = props => {
+const GolDarahList = ({ permissions, ...rest }) => {
   const {
     components: { list },
     fields: { id, nama }
   } = gol_darah;
 
-  return (
-    <List {...props} {...list}>
+  return permissions ? (
+    <List {...rest} {...list}>
       <Datagrid>
         <TextField {...id} />
         <TextField {...nama} />
@@ -23,7 +23,7 @@ const GolDarahList = props => {
         <DeleteButton />
       </Datagrid>
     </List>
-  );
+  ) : null;
 };
 
 export default GolDarahList;

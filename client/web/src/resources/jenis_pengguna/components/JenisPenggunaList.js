@@ -8,14 +8,14 @@ import {
 } from "react-admin";
 import jenis_pengguna from "..";
 
-const JenisPenggunaList = props => {
+const JenisPenggunaList = ({ permissions, ...rest }) => {
   const {
     components: { list },
     fields: { id, nama }
   } = jenis_pengguna;
 
-  return (
-    <List {...props} {...list}>
+  return permissions ? (
+    <List {...rest} {...list}>
       <Datagrid>
         <TextField {...id} />
         <TextField {...nama} />
@@ -23,7 +23,7 @@ const JenisPenggunaList = props => {
         <DeleteButton />
       </Datagrid>
     </List>
-  );
+  ) : null;
 };
 
 export default JenisPenggunaList;

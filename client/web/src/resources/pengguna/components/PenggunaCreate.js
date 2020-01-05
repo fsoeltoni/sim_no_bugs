@@ -15,7 +15,7 @@ import jenis_pengguna_src from "../../jenis_pengguna";
 import PersonelForm from "../../personel/components/PersonelForm";
 import PenggunaCreateToolbar from "../helpers/create/PenggunaCreateToolbar";
 
-const PenggunaCreate = props => {
+const PenggunaCreate = ({ permissions, ...rest }) => {
   const {
     components: { create },
     fields: { lingkup, penyelenggara, jenis_pengguna, kata_sandi },
@@ -29,8 +29,8 @@ const PenggunaCreate = props => {
 
   const hasLingkup = formData => formData[lingkup.source];
 
-  return (
-    <Create {...props} {...create}>
+  return permissions ? (
+    <Create {...rest} {...create}>
       <SimpleForm
         initialValues={initialValues}
         variant="outlined"
@@ -61,7 +61,7 @@ const PenggunaCreate = props => {
         <TextInput {...kata_sandi} />
       </SimpleForm>
     </Create>
-  );
+  ) : null;
 };
 
 export default PenggunaCreate;

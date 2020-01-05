@@ -3,7 +3,7 @@ import { Create, SimpleForm, TextInput } from "react-admin";
 import gol_darah from "..";
 import now from "../../../helpers/now";
 
-const GolDarahCreate = props => {
+const GolDarahCreate = ({ permissions, ...rest }) => {
   const {
     components: { create },
     fields: { nama }
@@ -14,13 +14,13 @@ const GolDarahCreate = props => {
     updated: now
   };
 
-  return (
-    <Create {...props} {...create}>
+  return permissions ? (
+    <Create {...rest} {...create}>
       <SimpleForm initialValues={initialValues} variant="outlined">
         <TextInput {...nama} />
       </SimpleForm>
     </Create>
-  );
+  ) : null;
 };
 
 export default GolDarahCreate;

@@ -3,7 +3,7 @@ import { Edit, SimpleForm, TextInput } from "react-admin";
 import gol_darah from "..";
 import now from "../../../helpers/now";
 
-const GolDarahEdit = props => {
+const GolDarahEdit = ({ permissions, ...rest }) => {
   const {
     components: { edit },
     fields: { nama }
@@ -13,13 +13,13 @@ const GolDarahEdit = props => {
     updated: now
   };
 
-  return (
-    <Edit {...props} {...edit}>
+  return permissions ? (
+    <Edit {...rest} {...edit}>
       <SimpleForm initialValues={initialValues} variant="outlined">
         <TextInput {...nama} />
       </SimpleForm>
     </Edit>
-  );
+  ) : null;
 };
 
 export default GolDarahEdit;

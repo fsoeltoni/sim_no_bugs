@@ -16,7 +16,7 @@ import jenis_pomdam_src from "../../jenis_pomdam";
 import PersonelForm from "../../personel/components/PersonelForm";
 import PenyelenggaraCreateToolbar from "../helpers/create/PenyelenggaraCreateToolbar";
 
-const PenyelenggaraCreate = props => {
+const PenyelenggaraCreate = ({ permissions, ...rest }) => {
   const {
     components: { create },
     fields: { lingkup, jenis_pomdam, nama, kode, kode_romawi, logo, stempel },
@@ -36,8 +36,8 @@ const PenyelenggaraCreate = props => {
     formData[jenis_pomdam.source] &&
     formData[jenis_pomdam.source] === 2;
 
-  return (
-    <Create {...props} {...create}>
+  return permissions ? (
+    <Create {...rest} {...create}>
       <SimpleForm
         initialValues={initialValues}
         variant="outlined"
@@ -73,7 +73,7 @@ const PenyelenggaraCreate = props => {
         <PersonelForm prefix={prefix} jenis_personel_default={1} />
       </SimpleForm>
     </Create>
-  );
+  ) : null;
 };
 
 export default PenyelenggaraCreate;

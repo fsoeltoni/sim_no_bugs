@@ -15,6 +15,10 @@ const SimCreate = ({ permissions, ...rest }) => {
     updated: now
   };
 
+  if (permissions) {
+    console.log(permissions);
+  }
+
   return permissions ? (
     <Create {...rest} {...create}>
       <SimpleForm initialValues={initialValues}></SimpleForm>

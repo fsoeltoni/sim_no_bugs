@@ -8,14 +8,14 @@ import {
 } from "react-admin";
 import korps from "..";
 
-const KorpsList = props => {
+const KorpsList = ({ permissions, ...rest }) => {
   const {
     components: { list },
     fields: { id, nama, kode }
   } = korps;
 
-  return (
-    <List {...props} {...list}>
+  return permissions ? (
+    <List {...rest} {...list}>
       <Datagrid>
         <TextField {...id} />
         <TextField {...nama} />
@@ -24,7 +24,7 @@ const KorpsList = props => {
         <DeleteButton />
       </Datagrid>
     </List>
-  );
+  ) : null;
 };
 
 export default KorpsList;

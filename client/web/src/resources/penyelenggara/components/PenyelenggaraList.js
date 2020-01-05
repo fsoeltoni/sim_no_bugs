@@ -12,7 +12,7 @@ import penyelenggara from "..";
 import lingkup_src from "../../lingkup";
 import personel_src from "../../personel";
 
-const PenyelenggaraList = props => {
+const PenyelenggaraList = ({ permissions, ...rest }) => {
   const {
     components: { list },
     fields: { id, lingkup, nama, kode, kode_romawi, komandan }
@@ -27,8 +27,8 @@ const PenyelenggaraList = props => {
     return display_kode_romawi + display_kode;
   };
 
-  return (
-    <List {...props} {...list}>
+  return permissions ? (
+    <List {...rest} {...list}>
       <Datagrid>
         <TextField {...id} />
         <ReferenceField {...lingkup}>
@@ -43,7 +43,7 @@ const PenyelenggaraList = props => {
         <DeleteButton />
       </Datagrid>
     </List>
-  );
+  ) : null;
 };
 
 export default PenyelenggaraList;

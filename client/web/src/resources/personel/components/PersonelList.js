@@ -8,7 +8,7 @@ import {
 } from "react-admin";
 import personel from "..";
 
-const PersonelList = props => {
+const PersonelList = ({ permissions, ...rest }) => {
   const {
     components: { list },
     fields
@@ -27,8 +27,8 @@ const PersonelList = props => {
     kesatuan
   } = fields();
 
-  return (
-    <List {...props} {...list}>
+  return permissions ? (
+    <List {...rest} {...list}>
       <Datagrid>
         <TextField {...id} />
         <TextField {...nama} />
@@ -37,7 +37,7 @@ const PersonelList = props => {
         <DeleteButton />
       </Datagrid>
     </List>
-  );
+  ) : null;
 };
 
 export default PersonelList;
